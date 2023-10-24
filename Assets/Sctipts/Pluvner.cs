@@ -56,10 +56,13 @@ public class Pluvner : MonoBehaviour
         foreach (var rork in shush)
             rork.Vmert = true;
         
-        _chikaKa.gameObject.SetActive(false);
         _hilgan.SetActive(true);
         
-        PlayerPrefs.SetInt("Sisamba", _uf);
+        
+        if (!PlayerPrefs.HasKey("Sisamba"))
+            PlayerPrefs.SetInt("Sisamba", _uf);
+        else if (PlayerPrefs.GetInt("Sisamba") < _uf)
+            PlayerPrefs.SetInt("Sisamba", _uf);
     }
     
     private Coroutine _podacha;
